@@ -1,0 +1,37 @@
+﻿<Page x:Class="Cookbook.Pages.LoginRegister.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:Cookbook.Pages.LoginRegister"
+      mc:Ignorable="d"
+      Title="LoginPage" MinHeight="250" MinWidth="400">
+    <Grid ShowGridLines="True">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30*"></RowDefinition>
+            <RowDefinition Height="35*"></RowDefinition>
+            <RowDefinition Height="40*"></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        
+        <Viewbox Stretch="Uniform" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Label FontSize="30" Width="180" Height="40" VerticalAlignment="Center" Margin="0,30,0,20" HorizontalAlignment="Center">Авторизация</Label>
+        </Viewbox>
+        
+        <Viewbox Grid.Row="1">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top">
+            
+                <TextBox Name="LoginTextBox" Width="160" Margin="5"></TextBox>
+                <PasswordBox Name="PasswordBox" Width="160" Margin="5"></PasswordBox>
+            
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <Button Name="LoginButton" Margin="5" Width="75">Войти</Button>
+                    <Button Name="GuestButton" Margin="5" Width="75">Гость</Button>
+                </StackPanel>
+            
+            </StackPanel>
+        </Viewbox>
+
+    </Grid>
+</Page>
