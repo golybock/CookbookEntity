@@ -25,7 +25,7 @@ namespace Cookbook
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.NavigationService.Navigate(new NavigationPage());
+            MainFrame.NavigationService.Navigate(new LoginPage());
         }
     }
 }

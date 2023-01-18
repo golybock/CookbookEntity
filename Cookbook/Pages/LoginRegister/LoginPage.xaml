@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Cookbook.Pages.LoginRegister"
       mc:Ignorable="d"
-      Title="LoginPage" MinHeight="250" MinWidth="400">
+      Title="LoginPage">
     <Grid ShowGridLines="True">
         
         <Grid.RowDefinitions>
@@ -16,7 +16,7 @@
         
         
         <Viewbox Stretch="Uniform" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label FontSize="30" Width="180" Height="40" VerticalAlignment="Center" Margin="0,30,0,20" HorizontalAlignment="Center">Авторизация</Label>
+            <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="26" Width="180" Height="40" VerticalAlignment="Center" Margin="0,30,0,20" HorizontalAlignment="Center">Авторизация</Label>
         </Viewbox>
         
         <Viewbox Grid.Row="1">
@@ -27,7 +27,7 @@
             
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button Name="LoginButton" Margin="5" Width="75">Войти</Button>
-                    <Button Name="GuestButton" Margin="5" Width="75">Гость</Button>
+                    <Button Name="GuestButton" Margin="5" Width="75" Click="GuestButton_OnClick">Гость</Button>
                 </StackPanel>
             
             </StackPanel>

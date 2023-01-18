@@ -11,7 +11,7 @@ public partial class NavigationPage : Page
     public NavigationPage()
     {
         InitializeComponent();
-        MainFrame.NavigationService.Navigate(new LoginPage());
+        MainFrame.NavigationService.Navigate(new RecipesPage.RecipesPage());
     }
     
     public NavigationPage(Client client)

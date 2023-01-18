@@ -32,7 +32,16 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Database" />
+      <None Remove="Resources\Icon\Icon512.ico" />
+      <Resource Include="Resources\Icon\Icon512.ico">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Resources\Icon\Icon512.png" />
+      <Resource Include="Resources\Icon\Icon512.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Resources\not_found_image.png" />
+      <Resource Include="Resources\not_found_image.png" />
     </ItemGroup>
 
 </Project>

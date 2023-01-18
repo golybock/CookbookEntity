@@ -6,8 +6,9 @@
         xmlns:local="clr-namespace:Cookbook"
         xmlns:ui="http://schemas.modernwpf.com/2019"
         ui:WindowHelper.UseModernWindowStyle="True"
-        Title="MainWindow"
-        MinHeight="450" MinWidth="800"
+        Title="Cookbook"
+        Icon="../Resources/Icon/Icon512.png"
+        MinHeight="250" MinWidth="230"
         Height="450" Width="800"
         SizeToContent="Manual"
         WindowStartupLocation="CenterScreen">
