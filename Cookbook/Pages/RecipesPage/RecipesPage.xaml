@@ -9,12 +9,17 @@
       Title="RecipesPage">
     <Grid>
         <ListBox Name="RecipesListBox">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border BorderThickness="1" BorderBrush="Black" CornerRadius="4" Background="LightGray">
-                        <WrapPanel ItemHeight="80" ItemWidth="120" VerticalAlignment="Center" HorizontalAlignment="Left">
-                            <Image Height="50" Width="50" Source="{Binding ImagePath, FallbackValue=../../Resources/not_found_image.png}"></Image>
-                            <TextBlock TextWrapping="Wrap" Text="{Binding Description}"></TextBlock>
+                        <WrapPanel ItemHeight="160" ItemWidth="240" VerticalAlignment="Center" HorizontalAlignment="Left">
+                            <Image VerticalAlignment="Center" HorizontalAlignment="Center" Height="100" Width="100" Source="{Binding ImagePath}"></Image>
+                            <TextBlock Margin="5" TextWrapping="Wrap" Text="{Binding Description}"></TextBlock>
                         </WrapPanel>
                     </Border>
                 </DataTemplate>

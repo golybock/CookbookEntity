@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace Cookbook.Database;
 
@@ -16,7 +17,7 @@ public partial class Client
     public string? Description { get; set; }
 
     public DateTime DateOfRegistration { get; set; }
-
+    
     public virtual ICollection<ClientImage> ClientImages { get; } = new List<ClientImage>();
 
     public virtual ICollection<ClientSub> ClientSubClients { get; } = new List<ClientSub>();

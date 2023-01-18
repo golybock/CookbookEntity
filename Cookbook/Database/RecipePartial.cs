@@ -17,7 +17,7 @@ public partial class Recipe
             if (imagePath != null)
                 return imagePath;
 
-            return null;
+            return "../../Resources/not_found_image.png";
         }
     }
 }

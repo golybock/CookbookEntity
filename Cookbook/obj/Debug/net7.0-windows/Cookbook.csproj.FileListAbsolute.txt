@@ -396,3 +396,5 @@ C:\Users\arshi\RiderProjects\Cookbook\Cookbook\obj\Debug\net7.0-windows\Cookbook
 C:\Users\arshi\RiderProjects\Cookbook\Cookbook\obj\Debug\net7.0-windows\ref\Cookbook.dll
 C:\Users\arshi\RiderProjects\Cookbook\Cookbook\obj\Debug\net7.0-windows\Pages\RecipesPage\RecipesPage.g.cs
 C:\Users\arshi\RiderProjects\Cookbook\Cookbook\obj\Debug\net7.0-windows\Pages\RecipesPage\RecipesPage.baml
+C:\Coding\C#\Cookbook\Cookbook\obj\Debug\net7.0-windows\Pages\RecipesPage\RecipesPage.g.cs
+C:\Coding\C#\Cookbook\Cookbook\obj\Debug\net7.0-windows\Pages\RecipesPage\RecipesPage.baml
