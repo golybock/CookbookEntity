@@ -1,5 +1,7 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Navigation;
 using Cookbook.Database;
 using Cookbook.Pages.LoginRegister;
 using Cookbook.Pages.Profile;
@@ -13,7 +15,6 @@ public partial class NavigationPage : Page
     public NavigationPage()
     {
         InitializeComponent();
-        MainFrame.NavigationService.Navigate(new RecipesPage.RecipesPage());
     }
     
     public NavigationPage(Client client)
@@ -24,12 +25,15 @@ public partial class NavigationPage : Page
 
     private void HomeButton_OnClick(object sender, RoutedEventArgs e)
     {
-        throw new System.NotImplementedException();
+        ClearNavigationService();
+        BackButton.Visibility = Visibility.Collapsed;
+        MainFrame.NavigationService.Navigate(new RecipesPage.RecipesPage());
     }
 
     private void FavoriteButton_OnClick(object sender, RoutedEventArgs e)
     {
-        throw new System.NotImplementedException();
+        BackButton.Visibility = Visibility.Visible;
+        MainFrame.NavigationService.Navigate(new RecipesPage.RecipesPage());
     }
 
     private void ProfilePage_OnClick(object sender, RoutedEventArgs e)
@@ -47,6 +51,22 @@ public partial class NavigationPage : Page
                 BackButton.Visibility = Visibility.Collapsed;
         }
 
-        
+    }
+
+    private void NavigationPage_OnLoaded(object sender, RoutedEventArgs e)
+    {
+        NavigationService.RemoveBackEntry();
+        MainFrame.NavigationService.Navigate(new RecipesPage.RecipesPage());
+    }
+
+    private void ClearNavigationService()
+    {
+        while (MainFrame.NavigationService.CanGoBack) {
+            try {
+                MainFrame.NavigationService.RemoveBackEntry();
+            } catch (Exception ex) {
+                break;
+            }
+        }
     }
 }

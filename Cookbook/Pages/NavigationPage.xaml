@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:Cookbook.Pages"
       xmlns:ui="http://schemas.modernwpf.com/2019"
       mc:Ignorable="d"
-      Title="NavigationPage">
+      Title="NavigationPage"
+      Loaded="NavigationPage_OnLoaded">
     <Grid ShowGridLines="True">
         
         <Grid.RowDefinitions>
