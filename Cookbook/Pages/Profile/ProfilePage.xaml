@@ -6,12 +6,23 @@
       xmlns:local="clr-namespace:Cookbook.Pages.Profile"
       mc:Ignorable="d"
       Title="ProfilePage">
-    <Grid Background="Aqua">
+    <Grid>
+        
         <WrapPanel ItemWidth="160" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Image Width="150" Height="150" Source="{Binding ImagePath}"></Image>
+            
+            <Border Name="CircularBorder" BorderThickness="1" BorderBrush="White" CornerRadius="{Binding ActualHeight, ElementName=CircularBorder}">
+                <Ellipse Width="150" Height="150">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="{Binding ImagePath}"></ImageBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+            </Border>
+
             <StackPanel Orientation="Vertical">
-                <TextBlock Text="Aboba"></TextBlock>
+                <TextBlock Text="{Binding Name, FallbackValue=Guest}"></TextBlock>
             </StackPanel>
+            
         </WrapPanel>
+        
     </Grid>
 </Page>
