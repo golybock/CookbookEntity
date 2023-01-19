@@ -10,11 +10,11 @@
     <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
         <Grid>
             
-            <WrapPanel ItemHeight="330">
+            <StackPanel Orientation="Vertical">
                 
                 <!-- основное фото и основная информация профиля -->
-                <Border Margin="5" Name="ProfileBorder" BorderThickness="1" BorderBrush="White" CornerRadius="10">
-                    <WrapPanel Margin="5" ItemWidth="160" ItemHeight="160" MaxHeight="250" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Border Margin="5" Name="ProfileBorder" BorderThickness="1" BorderBrush="White" CornerRadius="10" Height="330">
+                    <WrapPanel Margin="5" ItemWidth="160" ItemHeight="160" MaxHeight="330" HorizontalAlignment="Center" VerticalAlignment="Center">
                 
                         <Border Name="CircularBorder" BorderThickness="1" BorderBrush="White" CornerRadius="{Binding ActualHeight, ElementName=CircularBorder}">
                             <Ellipse Width="150" Height="150">
@@ -25,7 +25,7 @@
                         </Border>
 
                         <StackPanel Orientation="Vertical">
-                            <TextBlock Text="{Binding Name, FallbackValue=Guest}"></TextBlock>
+                            <TextBlock Background="Aqua" Text="{Binding Name, FallbackValue=Guest}"></TextBlock>
                         </StackPanel>
                 
                     </WrapPanel>
@@ -35,20 +35,7 @@
                     <Frame Name="ContentFrame" NavigationUIVisibility="Hidden"/>
                 </Border>
                 
-                <!-- фото профиля -->
-                <!-- <Border Margin="5" Name="ImageBorder" BorderThickness="1" BorderBrush="White" CornerRadius="10"> -->
-                <!--     <ListBox> -->
-                <!--         <ListBox.ItemTemplate> -->
-                <!--             <DataTemplate> -->
-                <!--                 <StackPanel> -->
-                <!--                     <Image Width="100" Height="100" Source="{Binding ImagePath}"></Image> -->
-                <!--                 </StackPanel> -->
-                <!--             </DataTemplate> -->
-                <!--         </ListBox.ItemTemplate> -->
-                <!--     </ListBox> -->
-                <!-- </Border> -->
-                
-            </WrapPanel>
+            </StackPanel>
             
         </Grid>
     </ScrollViewer>
