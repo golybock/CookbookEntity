@@ -17,9 +17,12 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border BorderThickness="1" BorderBrush="Black" CornerRadius="4" Background="LightGray">
-                        <WrapPanel ItemHeight="160" ItemWidth="240" VerticalAlignment="Center" HorizontalAlignment="Left">
-                            <Image VerticalAlignment="Center" HorizontalAlignment="Center" Height="100" Width="100" Source="{Binding ImagePath}"></Image>
-                            <TextBlock Margin="5" TextWrapping="Wrap" Text="{Binding Description}"></TextBlock>
+                        <WrapPanel MaxWidth="360" MinWidth="210" ItemHeight="160" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                            <Image Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center" Height="100" Width="100" Source="{Binding ImagePath}"></Image>
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock Margin="5" TextWrapping="Wrap" Text="{Binding Name}" FontStretch="Medium"></TextBlock>
+                                <TextBlock LineHeight="25" MaxWidth="250" MaxHeight="140" Margin="5" TextWrapping="Wrap" Text="{Binding Description}"></TextBlock>
+                            </StackPanel>
                         </WrapPanel>
                     </Border>
                 </DataTemplate>

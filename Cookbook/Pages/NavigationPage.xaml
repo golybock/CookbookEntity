@@ -17,19 +17,26 @@
         <ui:CommandBar Grid.Row="0" Background="Purple">
             
             <ui:CommandBar.Content>
-                <ui:AutoSuggestBox
-                    Margin="5"
-                    Width="150"
-                    HorizontalAlignment="Stretch"
-                    PlaceholderText="Search"
-                    QueryIcon="Find" />
+                
+                <StackPanel Orientation="Horizontal">
+                    <ui:AppBarButton Name="BackButton" Click="BackButton_OnClick" Visibility="Collapsed" Icon="Back" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    <ui:AutoSuggestBox
+                        Margin="5"
+                        Width="150"
+                        HorizontalAlignment="Stretch"
+                        PlaceholderText="Search"
+                        QueryIcon="Find" />
+                </StackPanel>
+                
+
+                
             </ui:CommandBar.Content>
             
             <ui:AppBarSeparator/>
             
-            <ui:AppBarButton Name="HomeButton" Icon="Home" Label="Home" VerticalContentAlignment="Center"/>
-            <ui:AppBarButton Name="FavoriteButton" Icon="Favorite" Label="Liked"></ui:AppBarButton>
-            <ui:AppBarButton Name="MyPostsButton" Icon="Contact" Label="MyProfile"></ui:AppBarButton>
+            <ui:AppBarButton Click="HomeButton_OnClick" Name="HomeButton" Icon="Home" Label="Home" VerticalContentAlignment="Center"/>
+            <ui:AppBarButton Click="FavoriteButton_OnClick" Name="FavoriteButton" Icon="Favorite" Label="Liked"></ui:AppBarButton>
+            <ui:AppBarButton Click="ProfilePage_OnClick" Name="ProfilePage" Icon="Contact" Label="MyProfile"></ui:AppBarButton>
         </ui:CommandBar>
         
         <Frame Name="MainFrame" Grid.Row="1" NavigationUIVisibility="Hidden"></Frame>

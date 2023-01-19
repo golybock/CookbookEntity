@@ -5,8 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Cookbook.Pages.Profile"
       mc:Ignorable="d"
-      Title="ProfilePage" Height="450" Width="800">
-    <Grid>
-        
+      Title="ProfilePage">
+    <Grid Background="Aqua">
+        <WrapPanel ItemWidth="160" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Image Width="150" Height="150" Source="{Binding ImagePath}"></Image>
+            <StackPanel Orientation="Vertical">
+                <TextBlock Text="Aboba"></TextBlock>
+            </StackPanel>
+        </WrapPanel>
     </Grid>
 </Page>
