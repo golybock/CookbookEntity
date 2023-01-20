@@ -23,6 +23,16 @@ public class ClientService : IClientService
         return _context.Clients.FirstOrDefault(c => c.Login == login);
     }
 
+    public bool Auth(string login, string password)
+    {
+        if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password))
+            return false;
+
+        return _context.Clients
+            .FirstOrDefault(c => c.Login == login)
+            .Password == password;
+    }
+
     public bool AddClient(Client client)
     {
         try
