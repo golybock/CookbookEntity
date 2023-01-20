@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using Cookbook.Database;
 
 namespace Cookbook.Pages.RecipesPage;
@@ -33,5 +34,11 @@ public partial class RecipesPage : Page
     private void EditMenuItem_OnClick(object sender, RoutedEventArgs e)
     {
         NavigationService.Navigate(new AddEditPage(RecipesListBox.SelectedItem as Recipe));
+    }
+
+    private void RecipesListBox_OnMouseDoubleClick(object sender, MouseButtonEventArgs e)
+    {
+        if(RecipesListBox.SelectedItem != null)
+            NavigationService.Navigate(new RecipePage(RecipesListBox.SelectedItem as Recipe));
     }
 }

@@ -8,7 +8,7 @@
       mc:Ignorable="d"
       Title="RecipesPage">
     <Grid>
-        <ListBox Name="RecipesListBox">
+        <ListBox Name="RecipesListBox" MouseDoubleClick="RecipesListBox_OnMouseDoubleClick">
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
                     <WrapPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Left"/>
@@ -16,7 +16,7 @@
             </ListBox.ItemsPanel>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <Border BorderThickness="1" CornerRadius="10" Background="LightGray">
+                    <Border Name="ElementBorder" BorderThickness="1" CornerRadius="10" Background="LightGray">
                         
                         <Border.ContextMenu>
                             <ContextMenu>
