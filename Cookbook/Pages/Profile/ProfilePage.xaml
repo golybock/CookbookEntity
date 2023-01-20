@@ -24,7 +24,7 @@
                         </Border>
 
                         <StackPanel Orientation="Vertical">
-                            <TextBlock Background="Aqua" Text="{Binding Name, FallbackValue=Guest}"></TextBlock>
+                            <TextBlock Text="{Binding Name, TargetNullValue=Guest}"></TextBlock>
                         </StackPanel>
                 
                     </WrapPanel>

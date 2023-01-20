@@ -15,7 +15,7 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
         
-        <ui:CommandBar Grid.Row="0" Background="Purple">
+        <ui:CommandBar Grid.Row="0" Background="LightBlue">
             
             <ui:CommandBar.Content>
                 
@@ -37,7 +37,8 @@
             
             <ui:AppBarButton Click="HomeButton_OnClick" Name="HomeButton" Icon="Home" Label="Home" VerticalContentAlignment="Center"/>
             <ui:AppBarButton Click="FavoriteButton_OnClick" Name="FavoriteButton" Icon="Favorite" Label="Liked"></ui:AppBarButton>
-            <ui:AppBarButton Click="ProfilePage_OnClick" Name="ProfilePage" Icon="Contact" Label="MyProfile"></ui:AppBarButton>
+            <ui:AppBarButton Click="ProfilePage_OnClick" Name="ProfilePage" Icon="Contact" Label="Профиль"></ui:AppBarButton>
+            <ui:AppBarButton Click="AddRecipeButton_OnClick" Name="AddRecipeButton" Icon="Add" Label="Создать"></ui:AppBarButton>
         </ui:CommandBar>
         
         <Frame Name="MainFrame" Grid.Row="1" NavigationUIVisibility="Hidden"></Frame>

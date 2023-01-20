@@ -1,17 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Cookbook.Database;
 
 public partial class Recipe
 {
+    private string _name;
+    
     public int Id { get; set; }
 
     public int ClientId { get; set; }
 
     public int RecipeTypeId { get; set; }
+    public string Name
+    {
+        get { return _name; }
+        set
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                throw new ArgumentException("Наименование не может быть пустым");
+            }
 
-    public string Name { get; set; } = null!;
+            _name = value;
+        } } 
 
     public DateTime DateOfCreation { get; set; }
 

@@ -46,6 +46,14 @@
       <Resource Include="Resources\profile_image.png">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Resource>
+      <None Remove="Resources\MenuIcons\DeleteIcon.png" />
+      <Resource Include="Resources\MenuIcons\DeleteIcon.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
+      <None Remove="Resources\MenuIcons\EditIcon.png" />
+      <Resource Include="Resources\MenuIcons\EditIcon.png">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Resource>
     </ItemGroup>
 
 </Project>

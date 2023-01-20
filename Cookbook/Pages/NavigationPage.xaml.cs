@@ -5,12 +5,14 @@ using System.Windows.Navigation;
 using Cookbook.Database;
 using Cookbook.Pages.LoginRegister;
 using Cookbook.Pages.Profile;
+using Cookbook.Pages.RecipesPage;
 
 namespace Cookbook.Pages;
 
 public partial class NavigationPage : Page
 {
     private Client _client;
+    private string _activePage;
     
     public NavigationPage()
     {
@@ -25,27 +27,41 @@ public partial class NavigationPage : Page
 
     private void HomeButton_OnClick(object sender, RoutedEventArgs e)
     {
-        ClearNavigationService();
-        BackButton.Visibility = Visibility.Collapsed;
-        MainFrame.NavigationService.Navigate(new RecipesPage.RecipesPage());
+        if (_activePage != "Home")
+        {
+            _activePage = "Home";
+            ClearNavigationService();
+            BackButton.Visibility = Visibility.Collapsed;
+            MainFrame.NavigationService.Navigate(new RecipesPage.RecipesPage());
+        }
     }
 
     private void FavoriteButton_OnClick(object sender, RoutedEventArgs e)
     {
-        BackButton.Visibility = Visibility.Visible;
-        MainFrame.NavigationService.Navigate(new RecipesPage.RecipesPage());
+        if (_activePage != "Fav")
+        {
+            _activePage = "Fav";
+            BackButton.Visibility = Visibility.Visible;
+            MainFrame.NavigationService.Navigate(new RecipesPage.RecipesPage());
+        }
+       
     }
 
     private void ProfilePage_OnClick(object sender, RoutedEventArgs e)
     {
-        BackButton.Visibility = Visibility.Visible;
-        MainFrame.NavigationService.Navigate(new ProfilePage());
+        if (_activePage != "Profile")
+        {
+            _activePage = "Profile";
+            BackButton.Visibility = Visibility.Visible;
+            MainFrame.NavigationService.Navigate(new ProfilePage());
+        }
     }
 
     private void BackButton_OnClick(object sender, RoutedEventArgs e)
     {
         if (MainFrame.NavigationService.CanGoBack)
         {
+            _activePage = "Home";
             NavigationService.GoBack();
             if(!MainFrame.NavigationService.CanGoBack)
                 BackButton.Visibility = Visibility.Collapsed;
@@ -57,6 +73,7 @@ public partial class NavigationPage : Page
     {
         NavigationService.RemoveBackEntry();
         MainFrame.NavigationService.Navigate(new RecipesPage.RecipesPage());
+        _activePage = "Home";
     }
 
     private void ClearNavigationService()
@@ -67,6 +84,16 @@ public partial class NavigationPage : Page
             } catch (Exception ex) {
                 break;
             }
+        }
+    }
+
+    private void AddRecipeButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        if (_activePage != "Add")
+        {
+            _activePage = "Add";
+            BackButton.Visibility = Visibility.Visible;
+            MainFrame.NavigationService.Navigate(new AddEditPage());
         }
     }
 }
