@@ -5,8 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="clr-namespace:Cookbook.Pages.Profile"
       mc:Ignorable="d"
-      Title="ProfilePage"
-      Loaded="ProfilePage_OnLoaded">
+      Title="ProfilePage">
     <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled">
         <Grid>
             
@@ -16,7 +15,7 @@
                 <Border Margin="5" Name="ProfileBorder" BorderThickness="1" BorderBrush="White" CornerRadius="10" Height="330">
                     <WrapPanel Margin="5" ItemWidth="160" ItemHeight="160" MaxHeight="330" HorizontalAlignment="Center" VerticalAlignment="Center">
                 
-                        <Border Name="CircularBorder" BorderThickness="1" BorderBrush="White" CornerRadius="{Binding ActualHeight, ElementName=CircularBorder}">
+                        <Border Name="CircularBorder" BorderThickness="1" BorderBrush="White" CornerRadius="{Binding ActualHeight, ElementName=CircularBorder}" Background="White">
                             <Ellipse Width="150" Height="150">
                                 <Ellipse.Fill>
                                     <ImageBrush ImageSource="{Binding ImagePath}"></ImageBrush>

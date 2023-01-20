@@ -7,10 +7,13 @@ namespace Cookbook.Pages.Profile;
 public partial class ProfilePage : Page
 {
     private Client _client;
+    
     public ProfilePage()
     {
         _client = new Client();
+        DataContext = _client;
         InitializeComponent();
+        ContentFrame.NavigationService.Navigate(new RecipesPage.RecipesPage());
     }
 
     public ProfilePage(Client client)
@@ -19,9 +22,9 @@ public partial class ProfilePage : Page
         InitializeComponent();
     }
 
-    private void ProfilePage_OnLoaded(object sender, RoutedEventArgs e)
-    {
-        DataContext = _client;
-        ContentFrame.NavigationService.Navigate(new RecipesPage.RecipesPage());
-    }
+    // private void ProfilePage_OnLoaded(object sender, RoutedEventArgs e)
+    // {
+    //     DataContext = _client;
+    //     ContentFrame.NavigationService.Navigate(new RecipesPage.RecipesPage());
+    // }
 }
