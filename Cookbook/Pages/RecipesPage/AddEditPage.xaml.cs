@@ -8,11 +8,19 @@ namespace Cookbook.Pages.RecipesPage;
 public partial class AddEditPage : Page
 {
     private CookbookContext _context = new CookbookContext();
-    private Recipe _recipe = new Recipe();
+    private Recipe _recipe;
     
     public AddEditPage()
     {
         InitializeComponent();
+        _recipe = new Recipe();
+        DataContext = _recipe;
+    }
+    
+    public AddEditPage(Recipe recipe)
+    {
+        InitializeComponent();
+        _recipe = recipe;
         DataContext = _recipe;
     }
 

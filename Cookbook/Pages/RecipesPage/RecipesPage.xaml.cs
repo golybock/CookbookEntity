@@ -32,6 +32,6 @@ public partial class RecipesPage : Page
 
     private void EditMenuItem_OnClick(object sender, RoutedEventArgs e)
     {
-        throw new System.NotImplementedException();
+        NavigationService.Navigate(new AddEditPage(RecipesListBox.SelectedItem as Recipe));
     }
 }
