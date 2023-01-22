@@ -11,11 +11,7 @@ public partial class Client
         {
             var imagePath = _context.ClientImages.FirstOrDefault(c => c.ClientId == Id)?.ImagePath;
 
-            if (imagePath != null)
-                return imagePath;
-            
-            return "../../Resources/profile_image.png";
-
+            return imagePath;
         }
     }
 }

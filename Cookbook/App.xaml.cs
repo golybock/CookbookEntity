@@ -21,7 +21,7 @@ namespace Cookbook
 
         private void CreateFolderForImages()
         {
-            string path = $"C:\\{Environment.UserName}\\Documents\\Images";
+            string path = $"C:\\Users\\{Environment.UserName}\\Documents\\Images";
             
             try
             {

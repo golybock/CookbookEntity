@@ -21,10 +21,5 @@ public partial class ProfilePage : Page
         _client = client;
         InitializeComponent();
     }
-
-    // private void ProfilePage_OnLoaded(object sender, RoutedEventArgs e)
-    // {
-    //     DataContext = _client;
-    //     ContentFrame.NavigationService.Navigate(new RecipesPage.RecipesPage());
-    // }
+    
 }

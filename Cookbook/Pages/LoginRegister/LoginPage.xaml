@@ -24,9 +24,10 @@
             
                 <TextBox Name="LoginTextBox" Width="160" Margin="5"></TextBox>
                 <PasswordBox Name="PasswordBox" Width="160" Margin="5"></PasswordBox>
+                <TextBlock Name="ErrorTextBlock" Visibility="Collapsed" Foreground="Red" HorizontalAlignment="Center"/>
             
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button Name="LoginButton" Margin="5" Width="75">Войти</Button>
+                    <Button Name="LoginButton" Margin="5" Width="75" Click="LoginButton_OnClick">Войти</Button>
                     <Button Name="GuestButton" Margin="5" Width="75" Click="GuestButton_OnClick">Гость</Button>
                 </StackPanel>
             

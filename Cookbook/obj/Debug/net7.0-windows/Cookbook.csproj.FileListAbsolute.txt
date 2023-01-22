@@ -402,3 +402,7 @@ C:\Users\arshi\RiderProjects\Cookbook\Cookbook\obj\Debug\net7.0-windows\Pages\Re
 C:\Users\arshi\RiderProjects\Cookbook\Cookbook\obj\Debug\net7.0-windows\Pages\RecipesPage\AddEditPage.baml
 C:\Users\arshi\RiderProjects\Cookbook\Cookbook\obj\Debug\net7.0-windows\Pages\RecipesPage\RecipePage.g.cs
 C:\Users\arshi\RiderProjects\Cookbook\Cookbook\obj\Debug\net7.0-windows\Pages\RecipesPage\RecipePage.baml
+C:\Coding\C#\Cookbook\Cookbook\obj\Debug\net7.0-windows\Pages\RecipesPage\AddEditPage.g.cs
+C:\Coding\C#\Cookbook\Cookbook\obj\Debug\net7.0-windows\Pages\RecipesPage\RecipePage.g.cs
+C:\Coding\C#\Cookbook\Cookbook\obj\Debug\net7.0-windows\Pages\RecipesPage\AddEditPage.baml
+C:\Coding\C#\Cookbook\Cookbook\obj\Debug\net7.0-windows\Pages\RecipesPage\RecipePage.baml

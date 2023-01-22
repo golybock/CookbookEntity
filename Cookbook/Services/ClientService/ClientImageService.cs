@@ -54,6 +54,8 @@ public class ClientImageService : IClientImageService
     {
         try
         {
+            string photoId = $"{clientImage.Client.Login}_{DateTime.Now.ToLongTimeString()}";
+            CopyImageToDocuments(clientImage.ImagePath, photoId, "png");
             _context.ClientImages.Update(clientImage);
             _context.SaveChanges();
             return true;
@@ -64,14 +66,13 @@ public class ClientImageService : IClientImageService
         }
     }
 
-    private bool CopyImageToDocuments(byte[] image, string filename, string format)
+    private bool CopyImageToDocuments(string source, string filename, string format)
     {
-        string path = $"C:\\{Environment.UserName}\\Documents\\Images\\{filename}.{format}";
+        string path = $"C:\\Users\\{Environment.UserName}\\Documents\\Images\\{filename}.{format}";
 
         try
         {
-            using StreamWriter sw = new StreamWriter(path);
-            sw.Write(image);
+            File.Copy(source, path);
             return true;
         }
         catch (Exception e)
@@ -79,6 +80,7 @@ public class ClientImageService : IClientImageService
             return false;
         }
     }
+    
 
     private bool ImageExists(string path)
     {

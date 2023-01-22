@@ -3,6 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:ui="http://schemas.modernwpf.com/2019"
       xmlns:local="clr-namespace:Cookbook.Pages.Profile"
       mc:Ignorable="d"
       Title="ProfilePage">
@@ -15,13 +16,15 @@
                 <Border Margin="5" Name="ProfileBorder" BorderThickness="1" BorderBrush="White" CornerRadius="10" Height="330">
                     <WrapPanel Margin="5" ItemWidth="160" ItemHeight="160" MaxHeight="330" HorizontalAlignment="Center" VerticalAlignment="Center">
                 
-                        <Border Name="CircularBorder" BorderThickness="1" BorderBrush="White" CornerRadius="{Binding ActualHeight, ElementName=CircularBorder}" Background="White">
-                            <Ellipse Width="150" Height="150">
-                                <Ellipse.Fill>
-                                    <ImageBrush ImageSource="{Binding ImagePath}"></ImageBrush>
-                                </Ellipse.Fill>
-                            </Ellipse>
-                        </Border>
+                        <ui:PersonPicture ProfilePicture="{Binding ImagePath}"></ui:PersonPicture>
+                        
+                        <!-- <Border Name="CircularBorder" BorderThickness="1" BorderBrush="White" CornerRadius="{Binding ActualHeight, ElementName=CircularBorder}" Background="White"> -->
+                        <!--     <Ellipse Width="150" Height="150"> -->
+                        <!--         <Ellipse.Fill> -->
+                        <!--             <ImageBrush ImageSource="{Binding ImagePath}"></ImageBrush> -->
+                        <!--         </Ellipse.Fill> -->
+                        <!--     </Ellipse> -->
+                        <!-- </Border> -->
 
                         <StackPanel Orientation="Vertical">
                             <TextBlock Text="{Binding Name, TargetNullValue=Guest}"></TextBlock>
