@@ -15,24 +15,20 @@
         </Grid.RowDefinitions>
         
         
-        <Viewbox Stretch="Uniform" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Label HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="26" Width="180" Height="40" VerticalAlignment="Center" Margin="0,30,0,20" HorizontalAlignment="Center">Авторизация</Label>
-        </Viewbox>
+        <Label Grid.Row="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="26" Width="180" Height="40" VerticalAlignment="Center" Margin="0,30,0,20" HorizontalAlignment="Center">Авторизация</Label>
         
-        <Viewbox Grid.Row="1">
-            <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top">
-            
-                <TextBox Name="LoginTextBox" Width="160" Margin="5"></TextBox>
-                <PasswordBox Name="PasswordBox" Width="160" Margin="5"></PasswordBox>
-                <TextBlock Name="ErrorTextBlock" Visibility="Collapsed" Foreground="Red" HorizontalAlignment="Center"/>
-            
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Button Name="LoginButton" Margin="5" Width="75" Click="LoginButton_OnClick">Войти</Button>
-                    <Button Name="GuestButton" Margin="5" Width="75" Click="GuestButton_OnClick">Гость</Button>
-                </StackPanel>
-            
+        <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top">
+        
+            <TextBox Name="LoginTextBox" Width="160" Margin="5" TextChanged="Input"/>
+            <PasswordBox Name="PasswordBox" Width="160" Margin="5" PasswordChanged="Input"/>
+            <TextBlock Name="ErrorTextBlock" Visibility="Collapsed" Foreground="Red" HorizontalAlignment="Center"/>
+        
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Name="LoginButton" Margin="5" Width="75" Click="LoginButton_OnClick">Войти</Button>
+                <Button Name="GuestButton" Margin="5" Width="75" Click="GuestButton_OnClick">Гость</Button>
             </StackPanel>
-        </Viewbox>
+        
+        </StackPanel>
 
     </Grid>
 </Page>

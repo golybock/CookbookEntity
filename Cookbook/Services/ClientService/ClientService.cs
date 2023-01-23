@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Cookbook.Database;
+using Cookbook.Models;
 
 namespace Cookbook.Services.ClientService;
 
@@ -21,16 +22,6 @@ public class ClientService : IClientService
             return null;
 
         return _context.Clients.FirstOrDefault(c => c.Login == login);
-    }
-
-    public bool Auth(string login, string password)
-    {
-        if (string.IsNullOrEmpty(login) || string.IsNullOrEmpty(password))
-            return false;
-
-        return _context.Clients
-            .FirstOrDefault(c => c.Login == login)
-            .Password == password;
     }
 
     public bool AddClient(Client client)
