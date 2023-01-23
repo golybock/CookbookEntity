@@ -32,7 +32,7 @@ public partial class RegisterPage : Page
 
     private void EditImageButton_OnClick(object sender, RoutedEventArgs e)
     {
-        throw new System.NotImplementedException();
+        ChooseImage();
     }
 
     private void PersonPicture_OnMouseDown(object sender, MouseButtonEventArgs e)
@@ -42,27 +42,48 @@ public partial class RegisterPage : Page
 
     private void PersonPicture_OnDrop(object sender, DragEventArgs e)
     {
-        throw new System.NotImplementedException();
+        string[] files = (string[]) e.Data.GetData(DataFormats.FileDrop);
+        string file = files[0];
+        // если файл картинка
+        if (file.EndsWith(".png") || file.EndsWith(".jpg"))
+        {
+            SetImage(file);
+        }
     }
 
     private void ChooseImage()
     {
+        // открываем диалог выбора файла
         OpenFileDialog openFileDialog = new OpenFileDialog();
         openFileDialog.InitialDirectory = "c:\\";
         openFileDialog.Filter = "Image files (*.png)|*.png|All files (*.*)|*.*";
-
+        // если показан
         if (openFileDialog.ShowDialog() == true)
         {
+            // если есть выбранный файл
             if (openFileDialog.FileName != String.Empty)
             {
-                _client.ImagePath = openFileDialog.FileName;
-                PersonPicture.ProfilePicture = new BitmapImage(new Uri(_client.ImagePath));
+                SetImage(openFileDialog.FileName);
             }
         }
     }
 
-    private void SetPhoto(string path)
+    private void SetImage(string path)
     {
+        // сохраняем путь в объекте
         _client.ImagePath = path;
+        // отображаем изображение
+        PersonPicture.ProfilePicture = new BitmapImage(new Uri(_client.ImagePath));
+    }
+
+    private void CancelButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        if (NavigationService != null) 
+            NavigationService.GoBack();
+    }
+
+    private void SaveButton_OnClick(object sender, RoutedEventArgs e)
+    {
+        throw new NotImplementedException();
     }
 }

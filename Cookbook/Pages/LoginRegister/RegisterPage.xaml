@@ -44,8 +44,8 @@
             </WrapPanel>
             
             <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button Name="CancelButton" Margin="5" Content="Отмена"></Button>
-                <Button Name="SaveButton" Margin="5" Content="Регистрация"></Button>
+                <Button Name="CancelButton" Margin="5" Content="Отмена" Click="CancelButton_OnClick"></Button>
+                <Button Name="SaveButton" Margin="5" Content="Регистрация" Click="SaveButton_OnClick"></Button>
             </StackPanel>
             
         </StackPanel>
