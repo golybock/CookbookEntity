@@ -159,4 +159,8 @@ public partial class LoginPage : Page
             HideError();
     }
 
+    private void RegistrationTextBlock_OnMouseDown(object sender, MouseButtonEventArgs e)
+    {
+        NavigationService.Navigate(new RegisterPage());
+    }
 }
