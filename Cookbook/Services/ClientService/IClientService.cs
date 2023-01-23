@@ -8,7 +8,7 @@ public interface IClientService
 {
     public Client? GetClientById(int id);
     public Client GetClientByLogin(string login);
-    public bool AddClient(Client client);
+    public int AddClient(Client client);
     public bool UpdateClient(Client client);
     public bool DeleteClient(int id);
 

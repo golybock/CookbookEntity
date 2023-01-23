@@ -20,24 +20,24 @@
                 <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
                 
                     <StackPanel Orientation="Vertical">
-                        <TextBlock Text="Имя"></TextBlock>
+                        <Label Content="Имя"></Label>
                         <TextBox Text="{Binding Name}" Width="150"></TextBox>
                     </StackPanel>
                 
                     <StackPanel Orientation="Vertical">
-                        <TextBlock Text="Логин"></TextBlock>
+                        <Label Content="Логин"></Label>
                         <TextBox Text="{Binding Login}" Width="150"></TextBox>
                     </StackPanel>
                 
                     <StackPanel Orientation="Vertical">
-                        <TextBlock Text="Пароль"></TextBlock>
+                        <Label Content="Пароль"></Label>
                         <PasswordBox Width="150"></PasswordBox>
                     </StackPanel>
                 
-                    <StackPanel Orientation="Vertical">
-                        <TextBlock Text="Описание"></TextBlock>
-                        <TextBox Text="{Binding Description}" Width="150" TextWrapping="Wrap"></TextBox>
-                    </StackPanel>
+                    <!-- <StackPanel Orientation="Vertical"> -->
+                    <!--     <Label Content="Описание"></Label> -->
+                    <!--     <TextBox Text="{Binding Description}" Width="150" TextWrapping="Wrap"></TextBox> -->
+                    <!-- </StackPanel> -->
                 
                 </StackPanel>
                 

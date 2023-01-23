@@ -24,17 +24,16 @@ public class ClientService : IClientService
         return _context.Clients.FirstOrDefault(c => c.Login == login);
     }
 
-    public bool AddClient(Client client)
+    public int AddClient(Client client)
     {
         try
         {
             _context.Clients.Add(client);
-            _context.SaveChanges();
-            return true;
+            return _context.SaveChanges();
         }
         catch
         {
-            return false;
+            return 0;
         }
     }
 

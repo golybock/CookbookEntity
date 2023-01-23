@@ -161,6 +161,12 @@ public partial class LoginPage : Page
 
     private void RegistrationTextBlock_OnMouseDown(object sender, MouseButtonEventArgs e)
     {
-        NavigationService.Navigate(new RegisterPage());
+        GetInfo();
+        
+        if(_login != String.Empty)
+            NavigationService.Navigate(new RegisterPage(_login));
+        else
+            NavigationService.Navigate(new RegisterPage());
+
     }
 }

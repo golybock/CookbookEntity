@@ -37,8 +37,8 @@ public class LoginService
 
         if (!passwordValid)
             return LoginResults.InvalidPassword;
-        
-        return new LoginResult() { Result = true, Description = "Вход выполнен" };
+
+        return LoginResults.Successfully;
     }
         
     private static string Hash(string stringToHash)

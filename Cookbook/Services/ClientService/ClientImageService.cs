@@ -40,7 +40,7 @@ public class ClientImageService : IClientImageService
     {
         try
         {
-            _context.ClientImages.Remove(new ClientImage(){ClientId = id});
+            _context.ClientImages.Remove(new ClientImage(){Id = id});
             _context.SaveChanges();
             return true;
         }
@@ -66,18 +66,18 @@ public class ClientImageService : IClientImageService
         }
     }
 
-    private bool CopyImageToDocuments(string source, string filename, string format)
+    private string CopyImageToDocuments(string source, string filename, string format)
     {
         string path = $"C:\\Users\\{Environment.UserName}\\Documents\\Images\\{filename}.{format}";
 
         try
         {
             File.Copy(source, path);
-            return true;
+            return path;
         }
         catch (Exception e)
         {
-            return false;
+            return null;
         }
     }
     

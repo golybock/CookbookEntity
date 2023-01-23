@@ -19,4 +19,7 @@ public static class LoginResults
     
     public static LoginResult EmptyData =>
         new LoginResult() { Code = 203, Result = false, Description = "Введите данные" };
+
+    public static LoginResult Successfully =>
+        new LoginResult() { Code = 100, Result = true, Description = "Успешно"};
 }
