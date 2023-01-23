@@ -17,14 +17,6 @@
                     <WrapPanel Margin="5" ItemWidth="160" ItemHeight="160" MaxHeight="330" HorizontalAlignment="Center" VerticalAlignment="Center">
                 
                         <ui:PersonPicture ProfilePicture="{Binding ImagePath}"></ui:PersonPicture>
-                        
-                        <!-- <Border Name="CircularBorder" BorderThickness="1" BorderBrush="White" CornerRadius="{Binding ActualHeight, ElementName=CircularBorder}" Background="White"> -->
-                        <!--     <Ellipse Width="150" Height="150"> -->
-                        <!--         <Ellipse.Fill> -->
-                        <!--             <ImageBrush ImageSource="{Binding ImagePath}"></ImageBrush> -->
-                        <!--         </Ellipse.Fill> -->
-                        <!--     </Ellipse> -->
-                        <!-- </Border> -->
 
                         <StackPanel Orientation="Vertical">
                             <TextBlock Text="{Binding Name, TargetNullValue=Guest}"></TextBlock>
