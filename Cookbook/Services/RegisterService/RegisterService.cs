@@ -17,7 +17,7 @@ public class RegisterService
         _clientImageService = new ClientImageService();
     }
 
-    public RegisterResult Register(Client client)
+    public RegisterResult Register(Client client, ClientImage clientImage)
     {
         if(!PasswordValid(client.Password))
             return RegisterResults.InvalidPassword;
@@ -31,19 +31,28 @@ public class RegisterService
 
 
         client.Id = _clientService.AddClient(client);
-        // _clientImageService.AddClientImage(new ClientImage(){ ClientId = client.Id })
+
+        clientImage.ClientId = client.Id;
+        
+        _clientImageService.AddClientImage(clientImage);
 
         return RegisterResults.Successfully;
     }
 
     public bool PasswordValid(string password)
     {
-        return PasswordHasDigit(password) &&
+        return PasswordNotNull(password) &&
+               PasswordHasDigit(password) &&
                PasswordHasSymbol(password) &&
                PasswordHasUpper(password) &&
                PasswordLengthValid(password);
     }
 
+    public bool PasswordNotNull(string password)
+    {
+        return string.IsNullOrEmpty(password);
+    }
+    
     public bool PasswordHasDigit(string password)
     {
         return password.Any(char.IsDigit);
@@ -61,7 +70,7 @@ public class RegisterService
 
     public bool PasswordHasSymbol(string password)
     {
-        return password.Any(char.IsSymbol);
+        return password.Any(char.IsPunctuation);
     }
 
     public bool LoginValid(string login)

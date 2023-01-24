@@ -31,7 +31,7 @@
                 
                     <StackPanel Orientation="Vertical">
                         <Label Content="Пароль"></Label>
-                        <PasswordBox Width="150"></PasswordBox>
+                        <PasswordBox Name="PasswordBox" Width="150"></PasswordBox>
                     </StackPanel>
                 
                     <!-- <StackPanel Orientation="Vertical"> -->

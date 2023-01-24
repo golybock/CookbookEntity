@@ -26,6 +26,9 @@ public class ClientImageService : IClientImageService
     {
         try
         {
+            string photoId = $"{clientImage.Client.Login}_{DateTime.Now.ToLongTimeString()}";
+            clientImage.ImagePath =
+                CopyImageToDocuments(clientImage.ImagePath, photoId, "png");
             _context.ClientImages.Add(clientImage);
             _context.SaveChanges();
             return true;
@@ -55,7 +58,8 @@ public class ClientImageService : IClientImageService
         try
         {
             string photoId = $"{clientImage.Client.Login}_{DateTime.Now.ToLongTimeString()}";
-            CopyImageToDocuments(clientImage.ImagePath, photoId, "png");
+            clientImage.ImagePath =
+                CopyImageToDocuments(clientImage.ImagePath, photoId, "png");
             _context.ClientImages.Update(clientImage);
             _context.SaveChanges();
             return true;

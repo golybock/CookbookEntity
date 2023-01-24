@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.IO;
+using System.Linq;
 
 namespace Cookbook.Database;
 
@@ -19,6 +20,9 @@ public partial class Client
                 .FirstOrDefault(c => c.ClientId == Id)?
                 .ImagePath;
 
+            if (!File.Exists(imagePath))
+                return null;
+            
             return imagePath;
         }
         set => _imagePath = value;
