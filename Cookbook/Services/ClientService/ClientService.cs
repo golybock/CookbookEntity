@@ -29,7 +29,8 @@ public class ClientService : IClientService
         try
         {
             _context.Clients.Add(client);
-            return _context.SaveChanges();
+            _context.SaveChanges();
+            return client.Id;
         }
         catch
         {

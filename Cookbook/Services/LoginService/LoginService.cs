@@ -14,8 +14,7 @@ public class LoginService
     {
         _clientService = new ClientService.ClientService();
     }
-    
-    
+
     public LoginResult Login(string login, string password)
     {
         if (string.IsNullOrEmpty(login) &&
@@ -38,7 +37,10 @@ public class LoginService
         if (!passwordValid)
             return LoginResults.InvalidPassword;
 
-        return LoginResults.Successfully;
+        LoginResult result = LoginResults.Successfully;
+        result.Client = client;
+        
+        return result;
     }
         
     private static string Hash(string stringToHash)

@@ -26,11 +26,15 @@ public class ClientImageService : IClientImageService
     {
         try
         {
-            string photoId = $"{clientImage.Client.Login}_{DateTime.Now.ToLongTimeString()}";
+            string photoId = $"{clientImage.Client.Login}_{GetTimeStamp()}";
             clientImage.ImagePath =
                 CopyImageToDocuments(clientImage.ImagePath, photoId, "png");
+
+            clientImage.Client = null;
+            
             _context.ClientImages.Add(clientImage);
             _context.SaveChanges();
+            
             return true;
         }
         catch
@@ -53,11 +57,16 @@ public class ClientImageService : IClientImageService
         }
     }
 
+    public string GetTimeStamp()
+    {
+        return Convert.ToString((int)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalSeconds);
+    }
+    
     public bool UpdateClientImage(ClientImage clientImage)
     {
         try
         {
-            string photoId = $"{clientImage.Client.Login}_{DateTime.Now.ToLongTimeString()}";
+            string photoId = $"{clientImage.Client.Login}_{GetTimeStamp()}";
             clientImage.ImagePath =
                 CopyImageToDocuments(clientImage.ImagePath, photoId, "png");
             _context.ClientImages.Update(clientImage);
@@ -81,7 +90,7 @@ public class ClientImageService : IClientImageService
         }
         catch (Exception e)
         {
-            return null;
+            throw e;
         }
     }
     

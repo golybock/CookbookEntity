@@ -53,7 +53,7 @@ public partial class NavigationPage : Page
         {
             _activePage = "Profile";
             BackButton.Visibility = Visibility.Visible;
-            MainFrame.NavigationService.Navigate(new ProfilePage());
+            MainFrame.NavigationService.Navigate(new ProfilePage(_client));
         }
     }
 

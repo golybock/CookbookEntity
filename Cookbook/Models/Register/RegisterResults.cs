@@ -1,4 +1,4 @@
-﻿namespace Cookbook.Models;
+﻿namespace Cookbook.Models.Register;
 
 public static class RegisterResults
 {

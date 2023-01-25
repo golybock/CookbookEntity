@@ -5,6 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using Cookbook.Database;
 using Cookbook.Models;
 using Cookbook.Services.ClientService;
 using Cookbook.Services.LoginService;
@@ -45,7 +46,7 @@ public partial class LoginPage : Page
         // проверяем результат 
         if (loginResult.Result)
         {
-            SuccessfulLogin();
+            SuccessfulLogin(loginResult.Client);
         }
         else
         {
@@ -56,7 +57,7 @@ public partial class LoginPage : Page
         }
     }
 
-    private void SuccessfulLogin()
+    private void SuccessfulLogin(Client client)
     {
         // переход на основную страницу
         NavigationService.Navigate(new NavigationPage());

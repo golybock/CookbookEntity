@@ -3,9 +3,11 @@ using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Cookbook.Database;
 using Cookbook.Models;
+using Cookbook.Models.Register;
 using Cookbook.Services.RegisterService;
 using Microsoft.Win32;
 
@@ -14,6 +16,7 @@ namespace Cookbook.Pages.LoginRegister;
 public partial class RegisterPage : Page
 {
     private Client _client;
+    private bool _hasError;
     private RegisterService _registerService;
     
     public RegisterPage()
@@ -76,7 +79,7 @@ public partial class RegisterPage : Page
     private void SetImage(string path)
     {
         // сохраняем путь в объекте
-        _client.ImagePath = path;
+        _client.SetImagePath(path);
         // отображаем изображение
         PersonPicture.ProfilePicture = new BitmapImage(new Uri(_client.ImagePath));
     }
@@ -89,30 +92,99 @@ public partial class RegisterPage : Page
 
     private void SaveButton_OnClick(object sender, RoutedEventArgs e)
     {
+        Register();
+    }
+
+    private void Register()
+    {
         _client.Password = PasswordBox.Password;
         
         RegisterResult result =
             _registerService.Register(
                 _client, new ClientImage() {ImagePath = _client.ImagePath}
             );
-
+        
         if (result.Result)
         {
             if (NavigationService != null) 
-                NavigationService.Navigate(new NavigationPage());
+                NavigationService.Navigate(new NavigationPage(_client));
         }
         else
         {
             if (result.Code == 101)
             {
-                
+                InvalidLogin(result.Description);
             }
             else if (result.Code == 102)
             {
-                
+                InvalidPassword(result.PasswordResult.Description);
+            }
+            else if (result.Code == 103)
+            {
+                InvalidData(result.Description);
+            }
+            else
+            {
+                ShowError("Неизвестная ошибка");
             }
             
         }
-        
+
     }
+    
+    private void ShowError(string error)
+    {
+        // показываем описание ошибки
+        ErrorLabel.Visibility = Visibility.Visible;
+        ErrorLabel.Text = error;
+        // сохраняем статус
+        _hasError = true;
+    }
+    
+    private void SetInvalidModeToTextBox(TextBox textBox)
+    {
+        textBox.BorderBrush = Brushes.Red;
+    }
+    
+    private void SetInvalidModeToPasswordBox(PasswordBox passwordBox)
+    {
+        passwordBox.BorderBrush = Brushes.Red;
+    }
+    
+    private void RemoveInvalidModeFromTextBox(TextBox textBox)
+    {
+        textBox.BorderBrush = Brushes.Black;
+    }
+    
+    private void RemoveInvalidModeFromPasswordBox(PasswordBox passwordBox)
+    {
+        passwordBox.BorderBrush = Brushes.Black;
+    }
+
+    private void InvalidLogin(string result)
+    {
+        SetInvalidModeToTextBox(LoginTextBox);
+        ShowError(result);
+    }
+
+    private void InvalidPassword(string result)
+    {
+        SetInvalidModeToPasswordBox(PasswordBox);
+        // очищаем пароль
+        PasswordBox.Password = String.Empty;
+        // выводим ошибку
+        ShowError(result);
+    }
+
+    private void InvalidData(string result)
+    {
+        // очищаем пароль
+        PasswordBox.Password = String.Empty;
+        // подсвечиваем неправильные данные
+        SetInvalidModeToTextBox(LoginTextBox);
+        SetInvalidModeToPasswordBox(PasswordBox);
+        // выводим ошибку
+        ShowError(result);
+    }
+    
 }

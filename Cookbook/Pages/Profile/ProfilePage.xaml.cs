@@ -19,7 +19,9 @@ public partial class ProfilePage : Page
     public ProfilePage(Client client)
     {
         _client = client;
+        DataContext = _client;
         InitializeComponent();
+        ContentFrame.NavigationService.Navigate(new RecipesPage.RecipesPage());
     }
     
 }
